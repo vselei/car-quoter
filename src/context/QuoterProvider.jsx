@@ -17,13 +17,31 @@ const QuoterProvider = ({ children }) => {
     });
   };
 
+  const insuranceQuoter = () => {
+    // Base
+
+    // Diferença de anos
+
+    // Aumento de 3% por ano
+
+    // Europeu 30%
+    // Americano 5%
+    // Asiático 5%
+
+    // Básico 20%
+    // Completo 50%
+
+    console.log('cotando...');
+  };
+
   return (
     <QuoterContext.Provider
       value={{
         data,
         handleDataChange,
         setError,
-        error
+        error,
+        insuranceQuoter
       }}
     >
       {children}

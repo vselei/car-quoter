@@ -5,7 +5,8 @@ import Error from './Error';
 import useQuoter from '../hooks/useQuoter';
 
 const Form = () => {
-  const { handleDataChange, data, setError, error } = useQuoter();
+  const { handleDataChange, data, setError, error, insuranceQuoter } =
+    useQuoter();
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -16,7 +17,9 @@ const Form = () => {
     }
 
     setError('');
+
     // TODO: Cotar
+    insuranceQuoter();
   };
 
   return (
