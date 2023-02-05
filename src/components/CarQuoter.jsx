@@ -2,9 +2,10 @@ import Form from './Form';
 import Spinner from './Spinner';
 
 import useQuoter from '../hooks/useQuoter';
+import Result from './Result';
 
 const CarQuoter = () => {
-  const { result, loading } = useQuoter();
+  const { loading } = useQuoter();
 
   return (
     <>
@@ -16,7 +17,7 @@ const CarQuoter = () => {
       <main className="bg-white md:w-2/3 lg:w-2/4 mx-auto shadow rounded-lg p-10">
         <Form />
 
-        {loading ? <Spinner /> : result}
+        {loading ? <Spinner /> : <Result />}
       </main>
     </>
   );
