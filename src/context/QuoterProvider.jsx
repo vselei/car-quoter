@@ -1,5 +1,7 @@
 import { createContext, useState } from 'react';
 
+import { getYearDif } from '../helpers';
+
 const QuoterContext = createContext();
 
 const QuoterProvider = ({ children }) => {
@@ -19,10 +21,13 @@ const QuoterProvider = ({ children }) => {
 
   const insuranceQuoter = () => {
     // Base
+    let result = 2000;
 
     // Diferença de anos
+    const yearDif = getYearDif(data.year);
 
     // Aumento de 3% por ano
+    result -= (yearDif * 3 * result) / 100;
 
     // Europeu 30%
     // Americano 5%
