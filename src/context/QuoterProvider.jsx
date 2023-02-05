@@ -12,6 +12,7 @@ const QuoterProvider = ({ children }) => {
   });
   const [error, setError] = useState('');
   const [result, setResult] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   const handleDataChange = e => {
     setData({
@@ -21,6 +22,7 @@ const QuoterProvider = ({ children }) => {
   };
 
   const insuranceQuoter = () => {
+    setLoading(true);
     // Base
     let result = 2000;
 
@@ -42,7 +44,10 @@ const QuoterProvider = ({ children }) => {
     // Formatar dinheiro
     result = moneyFormatter(result);
 
-    setResult(result);
+    setTimeout(() => {
+      setResult(result);
+      setLoading(false);
+    }, 1000);
   };
 
   return (
@@ -53,7 +58,8 @@ const QuoterProvider = ({ children }) => {
         setError,
         error,
         insuranceQuoter,
-        result
+        result,
+        loading
       }}
     >
       {children}
