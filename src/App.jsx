@@ -1,10 +1,12 @@
-import CarQuoter from "./components/CarQuoter"
+import { QuoterProvider } from './context/QuoterProvider';
+import CarQuoter from './components/CarQuoter';
 
 function App() {
-
   return (
-    <CarQuoter />
-  )
+    <QuoterProvider>
+      <CarQuoter />
+    </QuoterProvider>
+  );
 }
 
-export default App
+export default App;
