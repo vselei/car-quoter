@@ -5,10 +5,11 @@ const Result = () => {
   const { result, data } = useQuoter();
   const { model, plan, year } = data;
 
-  const modelName = MODELS[model - 1].name;
-  const planName = PLANS[plan - 1].name;
-
   if (result === 0) return null;
+  
+  const modelName = MODELS[Number(model) - 1].name;
+  const planName = PLANS[Number(plan) - 1].name;
+
 
   return (
     <div className="bg-gray-100 text-center mt-5 p-5 shadow">

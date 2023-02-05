@@ -5,7 +5,7 @@ import useQuoter from '../hooks/useQuoter';
 import Result from './Result';
 
 const CarQuoter = () => {
-  const { loading } = useQuoter();
+  const { loading, result } = useQuoter();
 
   return (
     <>
