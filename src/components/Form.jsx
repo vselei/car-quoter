@@ -1,13 +1,28 @@
 import { Fragment } from 'react';
 import { MODELS, YEARS, PLANS } from '../constants/index';
+
+import Error from './Error';
 import useQuoter from '../hooks/useQuoter';
 
 const Form = () => {
-  const { handleDataChange, data } = useQuoter();
+  const { handleDataChange, data, setError, error } = useQuoter();
+
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    if (Object.values(data).includes('')) {
+      setError('Todos os campos são obrigatórios');
+      return;
+    }
+
+    setError('');
+    // TODO: Cotar
+  };
 
   return (
     <>
-      <form>
+      {error && <Error />}
+      <form onSubmit={handleSubmit}>
         <div className="my-5">
           <label
             htmlFor="model"
